@@ -1,0 +1,74 @@
+#include <Avance.incl>
+#include <Grad.incl>
+
+
+"p37 =17.2*p1"    
+"spoff37=0.0"      
+"spw37=plw1"
+;spnam37 p90xb10_rf0.0_17.2p1_bw1.32B1.mrf;
+
+ 
+"p38 =61.1*p62"     
+"spoff38=0.0"    
+"spw38=plw1*pow(p1/(p62), 2)" 
+;spnam38 wade90_rf0.0_61.1p1_bw3.88B1_neg.mrf
+
+
+"d21 = d8-p16-d16-50u-4u-4u"
+ 
+;"p11=1m"
+"spw1 = plw1*pow(p1/((p11/1m)*(588.9)), 2)"
+;"spw1 = plw1*pow(p1/((p11/1m)*(1000.0)), 2)" ; Squa100.1000
+"l0=1" 
+"acqt0=0"
+baseopt_echo
+1 ze
+2 30m pl9:f1  
+ 
+  4u BLKGRAD
+ 
+
+  d1  
+  10u pl0:f1
+
+  50u UNBLKGRAD 
+ 
+  (p11:sp1 ph1):f1  
+
+  50u
+  p16:gp1
+  d16 
+
+  (p11:sp1 ph2):f1 
+    50u
+  p16:gp2
+  d16 
+	(p11:sp1 ph1):f1 
+  (p37:sp37 ph11) 
+  (p37:sp37 ph15) 
+	(p11:sp1 ph15):f1 
+
+
+  50u
+  p17:gp3
+  d16
+   
+  4u pl0:f1
+(p38:sp38 ph3)  
+
+  go=2 ph31
+  30m mc #0 to 2 F0(zd )
+  4u BLKGRAD
+exit
+
+
+ph1=   2 2 3 3 0 0 1 1;
+ph2=   0 0 1 1 2 2 3 3;
+ph3=   0 0 1 1 2 2 3 3;
+ph5=   2 0 3 1 0 2 1 3;
+ph31=  0 2 1 3 2 0 3 1; 
+ph11 = 0 0 1 1 2 2 3 3;
+ph12 = 2 2 3 3 0 0 1 1;
+ph15 = 0 2 1 3 2 0 3 1;
+ph16 = 2 0 3 1 0 2 1 3
+ 

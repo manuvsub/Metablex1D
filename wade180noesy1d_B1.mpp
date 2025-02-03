@@ -1,0 +1,71 @@
+#include <Avance.incl>
+#include <Grad.incl>
+
+
+"d12=50u"
+
+"p39 =74.0*p62"   
+"spoff39=0.0"     
+"spw39=plw1*pow(p1/p62, 2)" 
+;spnam39  wade39997_rf0.0_74.0p1_bw2.8B1_neg.mrf;
+
+"p37 =17.2*p1"    
+"spoff37=0.0"     
+"spw37=plw1 " 
+;spnam37 p90xb10_rf0.0_17.2p1_bw1.32B1.mrf; 
+
+ 
+
+"acqt0=0"
+
+baseopt_echo
+"d9 = d8-p11"
+
+
+"spw1 = plw1*pow(p1/((p11/1m)*588.9), 2)"
+ 
+1 ze
+2 30m
+ 
+  4u BLKGRAD  pl0:f1
+  
+  d1   
+  50u UNBLKGRAD
+  p16:gp1
+  d16 
+  (p11:sp1 ph11):f1
+	4u
+  (p37:sp37 ph1)
+  (p37:sp37 ph2)
+	4u
+  (p11:sp1 ph12):f1
+  d12  
+  p16:gp2
+  d16 
+
+ 
+  (p37:sp37 ph3)
+
+  50u  
+  p17:gp3
+  d16  
+
+  (p39:sp39 ph29)
+  50u  
+  p17:gp3
+  d16
+go=2 ph31
+30m mc #0 to 2 F0(zd)
+4u BLKGRAD
+exit
+
+
+ph1=0 2 
+ph11 = 2 0
+ph2=0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2
+ph12 = 2 2 2 2 2 2 2 2 0 0 0 0 0 0 0 0 
+ph3=0 0 2 2 1 1 3 3
+ph4=2 2 0 0 3 3 1 1
+ph29=0 0 0 0 1 1 1 1
+ph31=0 2 2 0 1 3 3 1 2 0 0 2 3 1 1 3
+ 
