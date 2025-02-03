@@ -21,12 +21,12 @@ Metabolex-1D is a collection of 1D NMR experiments designed for metabolomics stu
 
 ## Experimental Setup
 
-The experimental setup is driven by a Python script that configures a Bruker spectrometer with a set of parameters based on the chosen experiment. Below are the details for two of the setups: **Noesy1D-WADE180** and **Noesy1D-WADE90**.
+Below are the details for two of the setups: **1D NOESY-WADE-180** and **1D NOESY-WADE-90**.
 
 ### 1D NOESY-WADE-180  
 
 - **Pulse Sequence:**  
-  Uses the pulse program defined in `wade180noesy1d_B1.mpp`.
+   `wade180noesy1d_B1.mpp`.
 
 - **RF Shapes:**  
   - `p90xb10_rf0.0_17.2p1_bw1.32B1.mrf`  
@@ -45,13 +45,11 @@ The experimental setup is driven by a Python script that configures a Bruker spe
   - RF pulse shape `spnam1`: `Sinc1.1000`  
   - p62 is set as 50 µs (users are advised to adjust this delay to 100 µs or 150 µs when peaks near the water signal need to be better resolved).
 
-- **Additional Setup Commands:**  
-  The script also sets the calibrated 1H pulse width and power level using user inputs, applies receiver gain settings, and resets parameters using commands like `rpar P3919GP all` before executing the sequence.
 
 ### 1D NOESY-WADE-90
 
 - **Pulse Sequence:**  
-  Uses the pulse program defined in `wade90noesy1d.mpp`.
+   `wade90noesy1d.mpp`.
 
 - **RF Shapes:**  
   - `p90xb10_rf0.0_17.2p1_bw1.32B1.mrf`  
